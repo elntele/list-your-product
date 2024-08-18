@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "722950882055",
+    "project_id": "moviefornight-fbc3d",
+    "storage_bucket": "moviefornight-fbc3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722950882055:android:da8ae315ba133d2d5a3ba2",
+        "android_client_info": {
+          "package_name": "com.br.jc.list_your_product.movieForNight"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiAniQ7Yi9QJtnrYxVN_XC9Cb9IYLh9aM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
