@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.br.jc.list_your_product.R
+import com.br.jc.list_your_product.base.Error
+import com.br.jc.list_your_product.base.Loaded
 import com.br.jc.list_your_product.databinding.FragmentLoginBinding
 import com.br.jc.list_your_product.login.model.User
 import com.br.jc.list_your_product.login.viewmodel.LoginViewModel
@@ -40,19 +42,17 @@ class LoginFragment : Fragment() {
     }
 
     private fun loginButton() {
-        binding.loginButton.setOnClickListener {
-            if (binding.emailLogin.text.toString().isNotEmpty()) {
-                if (binding.passwordLogin.text.toString().isNotEmpty()) {
-                    val user = User(
-                        binding.emailLogin.text.toString(),
-                        binding.passwordLogin.text.toString()
-                    )
 
-                } else {
-                    getSnackBar(R.string.empty_password_space, R.string.click_to_continue)
+        binding.loginButton.setOnClickListener {
+            val email = binding.emailLogin.text.toString()
+            val senha = binding.passwordLogin.text.toString()
+            loginViewModel.isFieldLoginEmpty(email, senha).observe(viewLifecycleOwner) { it ->
+                when (it) {
+                    is Loaded -> {// aqui fazer a chamada para logir
+                         }
+                    is Error -> { getSnackBar(it.message.toString())}
+                    else -> {}
                 }
-            } else {
-                getSnackBar(R.string.empty_mail_space, R.string.click_to_continue)
             }
         }
     }
@@ -65,14 +65,16 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun getSnackBar(message: Int, action: Int) {
+    private fun getSnackBar(message: String) {
+        val result = loginViewModel.getNumbers(message)
+        val finalMessage= "${resources.getString(result.first)}"
         val snack =
             Snackbar.make(
                 binding.root,
-                getString(message),
+                finalMessage,
                 Snackbar.LENGTH_INDEFINITE
             ).setMaxInlineActionWidth(128)
-        snack.setAction(action) {
+        snack.setAction("${resources.getString(result.second)}") {
         }
         snack.show()
     }

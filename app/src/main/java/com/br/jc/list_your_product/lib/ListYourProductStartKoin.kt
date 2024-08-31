@@ -5,10 +5,12 @@ import com.br.jc.list_your_product.di.Modules
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
-object ListYourProductStartKoin {
-    fun run(application: Application) {
+class ListYourProductStartKoin: Application() {
+    @Override
+    override fun onCreate() {
+        super.onCreate()
         startKoin {
-            androidContext(application)
+            androidContext(this@ListYourProductStartKoin)
             modules(modules = Modules.module)
         }
     }
