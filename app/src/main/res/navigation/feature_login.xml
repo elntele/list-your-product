@@ -2,12 +2,34 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/feature_login"
+    android:id="@+id/feature_login_navigation"
     app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.br.jc.list_your_product.login.LoginFragment"
+        android:name="com.br.jc.list_your_product.login.ui.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.br.jc.list_your_product.login.ui.resgister.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_registerConfirmation"
+            app:destination="@id/registerConfirmation" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerConfirmation"
+        android:name="com.br.jc.list_your_product.login.ui.registerconfirmation.RegisterConfirmation"
+        android:label="fragment_register_confirmation"
+        tools:layout="@layout/fragment_register_confirmation" >
+        <action
+            android:id="@+id/action_registerConfirmation_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

@@ -3,8 +3,8 @@ import com.android.build.gradle.internal.scope.ProjectInfo.Companion.getBaseName
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-   // id("com.android.application")
     id("com.google.gms.google-services")
+    id("androidx.navigation.safeargs")
 }
 
 android {
@@ -39,8 +39,10 @@ android {
         jvmTarget = "1.8"
     }
     //binding
-    viewBinding {
-        enable = true
+    buildFeatures {
+        viewBinding {
+            enable = true
+        }
     }
 
     productFlavors{
