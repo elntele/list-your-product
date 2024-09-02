@@ -20,13 +20,13 @@ object Modules {
      */
     private fun Module.viewModelInjetction() {
         //login viewmodel injections
-        viewModel { LoginViewModel(get(), get()) }
+        viewModel { LoginViewModel(get()) }
     }
 
     private fun Module.useCaseInjection() {
         single { FirebaseAuth.getInstance() }
         single {
-            LoginUseCase()
+            LoginUseCase(get())
         }
     }
 

@@ -7,6 +7,16 @@ plugins {
     id("androidx.navigation.safeargs")
 }
 
+/*plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
+
+dependencies {
+    // Dependências do Firebase Authentication
+    implementation 'com.google.firebase:firebase-auth:22.1.0' // Verifique a última versão
+}*/
+
 android {
     namespace = "com.br.jc.list_your_product"
     compileSdk = 34
@@ -84,5 +94,6 @@ dependencies {
     implementation(kotlin("script-runtime"))
     //firebase
     implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
+    implementation ("com.google.firebase:firebase-auth:22.1.0")
     implementation("com.google.firebase:firebase-analytics")
 }

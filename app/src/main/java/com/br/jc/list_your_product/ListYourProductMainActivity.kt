@@ -4,18 +4,18 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.br.jc.list_your_product.databinding.ActivityMainBinding
+import com.br.jc.list_your_product.databinding.ActivityListyourproductmainBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 
 class ListYourProductMainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityListyourproductmainBinding
     private lateinit var navController: NavController
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityListyourproductmainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
         System.out.println("teste")

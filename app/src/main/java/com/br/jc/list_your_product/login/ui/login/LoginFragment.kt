@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.NavController
-import androidx.navigation.fragment.findNavController
 import com.br.jc.list_your_product.R
 import com.br.jc.list_your_product.base.Error
 import com.br.jc.list_your_product.base.Loaded
@@ -21,7 +21,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private lateinit var navController: NavController
-    private lateinit var auth: FirebaseAuth
     private val loginViewModel: LoginViewModel by viewModel()
 
 
@@ -45,12 +44,28 @@ class LoginFragment : Fragment() {
 
         binding.loginButton.setOnClickListener {
             val email = binding.emailLogin.text.toString()
-            val senha = binding.passwordLogin.text.toString()
-            loginViewModel.isFieldLoginEmpty(email, senha).observe(viewLifecycleOwner) { it ->
+            val password = binding.passwordLogin.text.toString()
+            loginViewModel.isFieldLoginEmpty(email, password).observe(viewLifecycleOwner) { it ->
                 when (it) {
-                    is Loaded -> {// aqui fazer a chamada para logir
-                         }
-                    is Error -> { getSnackBar(it.message.toString())}
+                    is Loaded -> {
+                        loginViewModel.login(email, password).observe(viewLifecycleOwner) { it ->
+                            when (it) {
+                                is Loaded -> {
+
+                                    // finish()
+                                }
+                                is Error -> {
+                                    getSnackBar(it.message.toString())
+                                }
+                                else -> {
+                                }
+                            }
+                        }
+                    }
+                    is Error -> {
+                        getSnackBar(it.message.toString())
+                    }
+
                     else -> {}
                 }
             }
@@ -59,22 +74,26 @@ class LoginFragment : Fragment() {
 
     private fun registerButton() {
         binding.registerButton.setOnClickListener {
-            val action =
+            /*val action =
                 LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
-            findNavController().navigate(action)
+            findNavController().navigate(action)*/
         }
     }
 
     private fun getSnackBar(message: String) {
-        val result = loginViewModel.getNumbers(message)
-        val finalMessage= "${resources.getString(result.first)}"
+        var result = ""
+        try {
+            result =  "${resources.getString(message.toInt())}"
+        }catch (e:Exception){
+            result = message
+        }
         val snack =
             Snackbar.make(
                 binding.root,
-                finalMessage,
+                result,
                 Snackbar.LENGTH_INDEFINITE
             ).setMaxInlineActionWidth(128)
-        snack.setAction("${resources.getString(result.second)}") {
+        snack.setAction(R.string.click_to_continue) {
         }
         snack.show()
     }
