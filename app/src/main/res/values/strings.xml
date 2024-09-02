@@ -14,9 +14,11 @@
     <string name="click_to_continue">Clique para continua</string>
     <string name="empty_mail_space">Email em branco não permitido</string>
     <string name="empty_password_space">Password em branco não permitido</string>
+    <string name="empty_name">Nome em branco não permitido</string>
     <string name="mail_not_registered">Esse email não está cadastrado</string>
     <string name="mail_and_password_not_match">Email e senha não conferem</string>
     <string name="mail_not_valid">Digite um email válido</string>
+    <string name="Too_many_requests">Login bloqueado por muitas tentativas, tente novamente mais tarde</string>
 
 
 

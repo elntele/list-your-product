@@ -94,6 +94,6 @@ dependencies {
     implementation(kotlin("script-runtime"))
     //firebase
     implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
-    implementation ("com.google.firebase:firebase-auth:22.1.0")
+    implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-analytics")
 }
