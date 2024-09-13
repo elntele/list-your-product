@@ -2,13 +2,16 @@ package com.br.jc.list_your_product.login.ui.resgister
 
 import android.app.Activity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat.finishAffinity
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.br.jc.list_your_product.R
-import com.br.jc.list_your_product.base.Loaded
 import com.br.jc.list_your_product.base.Error
+import com.br.jc.list_your_product.base.Loaded
 import com.br.jc.list_your_product.databinding.FragmentRegisterBinding
 import com.br.jc.list_your_product.login.viewmodel.RegisterViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -32,12 +35,13 @@ class RegisterFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding = FragmentRegisterBinding.inflate(inflater, container, false)
         buttonCreateUser()
         buttonClear()
+        buttonBackToLogin()
+        buttonExit()
         return binding.root
     }
 
@@ -55,19 +59,26 @@ class RegisterFragment : Fragment() {
                                     if (task.isSuccessful) {
                                         getSnackBar("createUserWithEmail:success")
                                     } else {
-                                        registerViewModel.getExceptionCause(task.exception!!).observe(viewLifecycleOwner){ exception->
-                                            when(exception){
-                                                is Error ->{
-                                                    exception.message?.let {
-                                                        getSnackBar(exception.message)
+                                        registerViewModel.getExceptionCause(task.exception!!)
+                                            .observe(viewLifecycleOwner) { exception ->
+                                                when (exception) {
+                                                    is Error -> {
+                                                        exception.message?.let {
+                                                            getSnackBar(exception.message)
+                                                        }
                                                     }
+
+                                                    else -> {}
                                                 }
-                                                else->{}
                                             }
-                        }}}}
+                                    }
+                                }
+                        }
 
                         is Error -> {
-                            it.message?.let { it1 -> getSnackBar(it1) }
+                            it.message?.let { it1 ->
+                                getSnackBar(it1)
+                            }
                         }
 
                         else -> {}
@@ -86,6 +97,36 @@ class RegisterFragment : Fragment() {
         }
     }
 
+    private fun buttonBackToLogin() {
+        binding.actionBackRegister.setOnClickListener {
+            val action = RegisterFragmentDirections.actionRegisterFragmentToLoginFragment()
+            findNavController().navigate(action)
+        }
+    }
+
+
+    private fun buttonExit() {
+        binding.exitRegister.setOnClickListener {
+            activity?.let {
+                val builder = AlertDialog.Builder(it)
+                builder.setMessage("Deseja Sair do Aplicativo?")
+                builder.setCancelable(true)
+                builder.setPositiveButton(
+                    "Sim"
+                ) { dialogInterface, i ->
+                    it.finish()
+                    it.finishAffinity()
+                    System.exit(0)
+                }
+                builder.setNegativeButton(
+                    "Não"
+                ) { dialogInterface, i -> dialogInterface.cancel() }
+                val alertDialog = builder.create()
+                alertDialog.show()
+            }
+        }
+    }
+
     private fun getSnackBar(message: String) {
         var result = ""
         try {
@@ -93,14 +134,10 @@ class RegisterFragment : Fragment() {
         } catch (e: Exception) {
             result = message
         }
-        val snack =
-            Snackbar.make(
-                binding.root,
-                result,
-                Snackbar.LENGTH_INDEFINITE
-            ).setMaxInlineActionWidth(128)
-        snack.setAction(R.string.click_to_continue) {
-        }
+        val snack = Snackbar.make(
+            binding.root, result, Snackbar.LENGTH_INDEFINITE
+        ).setMaxInlineActionWidth(128)
+        snack.setAction(R.string.click_to_continue) {}
         snack.show()
     }
 

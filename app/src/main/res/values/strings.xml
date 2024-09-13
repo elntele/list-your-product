@@ -19,6 +19,7 @@
     <string name="mail_and_password_not_match">Email e senha não conferem</string>
     <string name="mail_not_valid">Digite um email válido</string>
     <string name="Too_many_requests">Login bloqueado por muitas tentativas, tente novamente mais tarde</string>
+    <string name="weak_password">senha muito fraca</string>
 
 
 

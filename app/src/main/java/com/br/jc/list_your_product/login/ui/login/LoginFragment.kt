@@ -8,6 +8,7 @@ import android.view.PixelCopy.Request
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.br.jc.list_your_product.R
@@ -42,6 +43,7 @@ class LoginFragment : Fragment() {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         registerButton()
         loginButton()
+        buttonExit()
         return binding.root
 
     }
@@ -89,6 +91,28 @@ class LoginFragment : Fragment() {
             val action =
                 LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
             findNavController().navigate(action)
+        }
+    }
+
+    private fun buttonExit() {
+        binding.exitImageScreenLogin.setOnClickListener {
+            activity?.let {
+                val builder = AlertDialog.Builder(it)
+                builder.setMessage("Deseja Sair do Aplicativo?")
+                builder.setCancelable(true)
+                builder.setPositiveButton(
+                    "Sim"
+                ) { dialogInterface, i ->
+                    it.finish()
+                    it.finishAffinity()
+                    System.exit(0)
+                }
+                builder.setNegativeButton(
+                    "Não"
+                ) { dialogInterface, i -> dialogInterface.cancel() }
+                val alertDialog = builder.create()
+                alertDialog.show()
+            }
         }
     }
 

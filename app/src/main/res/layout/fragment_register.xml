@@ -24,7 +24,6 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:clickable="true"
-            android:onClick="backButtonTelaCadastro"
             app:srcCompat="@drawable/ic_arrow_back_black_24dp"
             tools:ignore="SpeakableTextPresentCheck" />
 
@@ -41,7 +40,6 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:clickable="true"
-            android:onClick="sairTelaCadastro"
             app:srcCompat="@drawable/ic_exit_to_app_black_24dp"
             tools:ignore="SpeakableTextPresentCheck" />
 

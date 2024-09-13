@@ -27,7 +27,6 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:clickable="true"
-            android:onClick="sairTelaLogin"
             app:srcCompat="@drawable/ic_exit_to_app_black_24dp"
             tools:ignore="SpeakableTextPresentCheck" />
     </LinearLayout>
