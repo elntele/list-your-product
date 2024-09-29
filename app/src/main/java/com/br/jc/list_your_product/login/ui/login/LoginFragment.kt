@@ -4,30 +4,23 @@ import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.PixelCopy.Request
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.br.jc.list_your_product.R
-import com.br.jc.list_your_product.base.Error
-import com.br.jc.list_your_product.base.Loaded
+import com.br.jc.list_your_product.common.Error
+import com.br.jc.list_your_product.common.Loaded
 import com.br.jc.list_your_product.databinding.FragmentLoginBinding
-import com.br.jc.list_your_product.login.model.User
 import com.br.jc.list_your_product.login.viewmodel.LoginViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.Firebase
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthEmailException
 import com.google.firebase.auth.auth
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
-    private lateinit var navController: NavController
     private val loginViewModel: LoginViewModel by viewModel()
     private val auth = Firebase.auth
 

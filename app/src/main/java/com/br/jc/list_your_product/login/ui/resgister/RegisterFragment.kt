@@ -6,12 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
-import androidx.core.app.ActivityCompat.finishAffinity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.br.jc.list_your_product.R
-import com.br.jc.list_your_product.base.Error
-import com.br.jc.list_your_product.base.Loaded
+import com.br.jc.list_your_product.common.Error
+import com.br.jc.list_your_product.common.Loaded
 import com.br.jc.list_your_product.databinding.FragmentRegisterBinding
 import com.br.jc.list_your_product.login.viewmodel.RegisterViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -137,7 +136,10 @@ class RegisterFragment : Fragment() {
         val snack = Snackbar.make(
             binding.root, result, Snackbar.LENGTH_INDEFINITE
         ).setMaxInlineActionWidth(128)
-        snack.setAction(R.string.click_to_continue) {}
+        snack.setAction(R.string.click_to_continue) {
+            val action= RegisterFragmentDirections.actionRegisterFragmentToRegisterConfirmation()
+            findNavController().navigate(action)
+        }
         snack.show()
     }
 

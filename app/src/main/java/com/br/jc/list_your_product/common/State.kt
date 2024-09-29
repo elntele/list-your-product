@@ -1,4 +1,4 @@
-package com.br.jc.list_your_product.base
+package com.br.jc.list_your_product.common
 
 sealed class State<out T : Any>
 object Loading: State<Nothing>()

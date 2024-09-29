@@ -3,9 +3,9 @@ package com.br.jc.list_your_product.login.usercase
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.br.jc.list_your_product.R
-import com.br.jc.list_your_product.base.Error
-import com.br.jc.list_your_product.base.State
-import com.br.jc.list_your_product.base.UseCase
+import com.br.jc.list_your_product.common.Error
+import com.br.jc.list_your_product.common.State
+import com.br.jc.list_your_product.common.interfaces.UseCase
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.FirebaseAuthEmailException

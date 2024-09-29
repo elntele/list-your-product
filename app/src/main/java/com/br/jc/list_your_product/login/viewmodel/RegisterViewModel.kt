@@ -5,9 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.br.jc.list_your_product.R
-import com.br.jc.list_your_product.base.Error
-import com.br.jc.list_your_product.base.Loaded
-import com.br.jc.list_your_product.base.State
+import com.br.jc.list_your_product.common.Error
+import com.br.jc.list_your_product.common.Loaded
+import com.br.jc.list_your_product.common.State
 import com.br.jc.list_your_product.login.usercase.LoginUseCase
 import kotlinx.coroutines.launch
 

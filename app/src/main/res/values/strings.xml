@@ -20,8 +20,9 @@
     <string name="mail_not_valid">Digite um email válido</string>
     <string name="Too_many_requests">Login bloqueado por muitas tentativas, tente novamente mais tarde</string>
     <string name="weak_password">senha muito fraca</string>
-
-
+    <string name="wait_Rest_screen">Aguarde enquanto a base de dados é carregada</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

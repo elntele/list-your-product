@@ -1,18 +1,22 @@
 package com.br.jc.list_your_product
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.br.jc.list_your_product.base.BaseActivity
 import com.br.jc.list_your_product.databinding.ActivityListyourproductmainBinding
+import com.br.jc.list_your_product.login.viewmodel.LoginViewModel
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ListYourProductMainActivity : AppCompatActivity() {
+class ListYourProductMainActivity : BaseActivity() {
     private lateinit var binding: ActivityListyourproductmainBinding
     private lateinit var navController: NavController
     private lateinit var auth: FirebaseAuth
+    private val loginViewModel: LoginViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityListyourproductmainBinding.inflate(layoutInflater)
@@ -28,16 +32,25 @@ class ListYourProductMainActivity : AppCompatActivity() {
         //here the above container is gaven to the attribute navController
         navController = navFragment.navController
         auth = Firebase.auth
+        observeViewModel()
 
     }
 
     override fun onStart() {
         super.onStart()
         if (auth == null) {
-            navController?.setGraph(R.navigation.feature_login)
+           // navController?.setGraph(R.navigation.feature_login)
+            navController?.setGraph(R.navigation.feature_wait_rest)
         } else {
-            navController?.setGraph(R.navigation.feature_login)
+            navController?.setGraph(R.navigation.feature_wait_rest)
         }
 
+    }
+
+    override fun observeViewModel() {
+        super.observeViewModel()
+        loginViewModel.isLogged.observe(this){
+            // setar o navcontroller aqui.
+        }
     }
 }
