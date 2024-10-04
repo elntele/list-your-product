@@ -64,9 +64,6 @@ android {
         buildConfig = true
     }
 
-
-
-
     productFlavors{
         flavorDimensions += "product"
 

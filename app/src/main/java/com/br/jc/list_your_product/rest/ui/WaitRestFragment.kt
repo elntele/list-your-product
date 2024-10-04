@@ -29,7 +29,10 @@ class WaitRestFragment : Fragment() {
     }
 
     private fun callData(){
-        waitRestViewModel.getIdsList()
+      //  waitRestViewModel.getIdsList()
+       // waitRestViewModel.getMovieList()
+        waitRestViewModel.searchMovie("star wars")
+
     }
 
     private fun observeIdData(){

@@ -6,6 +6,8 @@ import com.br.jc.list_your_product.login.usercase.RegisterUseCase
 import com.br.jc.list_your_product.login.viewmodel.LoginViewModel
 import com.br.jc.list_your_product.login.viewmodel.RegisterViewModel
 import com.br.jc.list_your_product.rest.usecase.RestGetIdsUseCase
+import com.br.jc.list_your_product.rest.usecase.RestGetMoviesListUseCase
+import com.br.jc.list_your_product.rest.usecase.RestSearchUseCase
 import com.br.jc.list_your_product.rest.viewmodel.WaitRestViewModel
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.CoroutineDispatcher
@@ -29,7 +31,7 @@ object Modules {
         //login viewmodel injections
         viewModel { LoginViewModel(get()) }
         viewModel { RegisterViewModel(get()) }
-        viewModel {WaitRestViewModel(get())}
+        viewModel {WaitRestViewModel(get(), get(), get())}
     }
 
     /**
@@ -49,6 +51,14 @@ object Modules {
 
         single {
             RestGetIdsUseCase()
+        }
+
+        single {
+            RestGetMoviesListUseCase()
+        }
+
+        single {
+            RestSearchUseCase()
         }
     }
 
