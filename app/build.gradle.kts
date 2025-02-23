@@ -67,10 +67,10 @@ android {
     productFlavors{
         flavorDimensions += "product"
 
-        create("wetherSearch"){
+        create("wetherMovie"){
             dimension = "product"
-            applicationIdSuffix = ".wetherSearch"
-            manifestPlaceholders["appName"]= "WetherSearch"
+            applicationIdSuffix = ".wetherMovie"
+            manifestPlaceholders["appName"]= "wetherMovie"
         }
 
        create("movieForNight") {
