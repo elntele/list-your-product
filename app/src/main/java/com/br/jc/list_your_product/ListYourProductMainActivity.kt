@@ -41,8 +41,10 @@ class ListYourProductMainActivity : BaseActivity() {
         if (auth == null) {
            // navController?.setGraph(R.navigation.feature_login)
             navController?.setGraph(R.navigation.feature_wait_rest)
+            //navController?.setGraph(R.navigation.feature_display)
         } else {
             navController?.setGraph(R.navigation.feature_wait_rest)
+            //navController?.setGraph(R.navigation.feature_display)
         }
 
     }

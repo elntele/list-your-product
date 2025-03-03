@@ -6,7 +6,7 @@ import com.br.jc.list_your_product.login.usercase.RegisterUseCase
 import com.br.jc.list_your_product.login.viewmodel.LoginViewModel
 import com.br.jc.list_your_product.login.viewmodel.RegisterViewModel
 import com.br.jc.list_your_product.rest.usecase.RestGetIdsUseCase
-import com.br.jc.list_your_product.rest.usecase.RestGetMoviesListUseCase
+import com.br.jc.list_your_product.rest.usecase.RestGetDiscoverMoviesListUseCase
 import com.br.jc.list_your_product.rest.usecase.RestSearchUseCase
 import com.br.jc.list_your_product.rest.viewmodel.WaitRestViewModel
 import com.google.firebase.auth.FirebaseAuth
@@ -54,7 +54,7 @@ object Modules {
         }
 
         single {
-            RestGetMoviesListUseCase()
+            RestGetDiscoverMoviesListUseCase()
         }
 
         single {

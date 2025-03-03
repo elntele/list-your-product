@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/waitRestFragment"
-        android:name="com.br.jc.list_your_product.rest.ui.WaitRestFragment"
+        android:name="com.br.jc.list_your_product.display.ui.WaitRestFragment"
         android:label="fragment_wait_rest"
         tools:layout="@layout/fragment_wait_rest" />
 </navigation>

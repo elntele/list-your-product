@@ -1,4 +1,4 @@
-package com.br.jc.list_your_product.rest.ui
+package com.br.jc.list_your_product.display.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -28,15 +28,16 @@ class WaitRestFragment : Fragment() {
         return binding.root
     }
 
-    private fun callData(){
-      //  waitRestViewModel.getIdsList()
-       // waitRestViewModel.getMovieList()
+    private fun callData() {
+        //  waitRestViewModel.getIdsList()
+        waitRestViewModel.getDiscoverMovieList()
         waitRestViewModel.searchMovie("star wars")
+        println("")
 
     }
 
-    private fun observeIdData(){
-        waitRestViewModel.idsReferences.observe(viewLifecycleOwner){
+    private fun observeIdData() {
+        waitRestViewModel.idsReferences.observe(viewLifecycleOwner) {
 
         }
     }

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/feature_display.xml"
+    app:startDestination="@id/waitRestFragment2">
+
+    <fragment
+        android:id="@+id/initialScreen"
+        android:name="com.br.jc.list_your_product.display.ui.InitialScreen"
+        android:label="fragment_initial_screen"
+        tools:layout="@layout/fragment_initial_screen" >
+        <action
+            android:id="@+id/action_initialScreen_to_waitRestFragment2"
+            app:destination="@id/waitRestFragment2" />
+        <action
+            android:id="@+id/action_initialScreen_to_fragmentSearchMovie"
+            app:destination="@id/fragmentSearchMovie" />
+    </fragment>
+    <fragment
+        android:id="@+id/waitRestFragment2"
+        android:name="com.br.jc.list_your_product.display.ui.WaitRestFragment"
+        android:label="fragment_wait_rest"
+        tools:layout="@layout/fragment_wait_rest" >
+        <action
+            android:id="@+id/action_waitRestFragment2_to_listMovieFragment22"
+            app:destination="@id/listMovieFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/listMovieFragment2"
+        android:name="com.br.jc.list_your_product.display.ui.ListMovieFragment"
+        android:label="fragment_list_movie"
+        tools:layout="@layout/fragment_list_movie" >
+        <action
+            android:id="@+id/action_listMovieFragment2_to_presentationFragment"
+            app:destination="@id/presentationFragment" />
+        <action
+            android:id="@+id/action_listMovieFragment2_to_initialScreen"
+            app:destination="@id/initialScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/presentationFragment"
+        android:name="com.br.jc.list_your_product.display.ui.PresentationFragment"
+        android:label="fragment_presentation"
+        tools:layout="@layout/fragment_presentation" >
+        <action
+            android:id="@+id/action_presentationFragment_to_listMovieFragment2"
+            app:destination="@id/listMovieFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSearchMovie"
+        android:name="com.br.jc.list_your_product.display.ui.FragmentSearchMovie"
+        android:label="fragment_search_movie"
+        tools:layout="@layout/fragment_search_movie" >
+        <action
+            android:id="@+id/action_fragmentSearchMovie_to_waitRestFragment2"
+            app:destination="@id/waitRestFragment2" />
+    </fragment>
+</navigation>

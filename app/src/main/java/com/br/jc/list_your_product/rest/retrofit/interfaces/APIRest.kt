@@ -15,8 +15,15 @@ interface APIRest {
     suspend fun getIds(@Query("page") page: String): MovieChangesResponse
 
 
+    /**
+     * implements the task discover
+     * merge the url in two line below an
+     * see documentation:
+     * https://developer.themoviedb.org/
+     * reference/discover-movie
+     */
     @GET("discover/movie")
-    suspend fun getMovies(
+    suspend fun getDiscoverMovies(
         @Query("include_adult") include_adult: Boolean,
         @Query("include_video") include_video: Boolean,
         @Query("language") language: String,
@@ -25,7 +32,13 @@ interface APIRest {
     ): MovieList
 
 
-
+    /**
+     * implements the task search
+     * merge the url in two line below an
+     * see documentation:
+     * https://developer.themoviedb.org/
+     * reference/search-movie
+     */
     @GET("search/movie")
     suspend fun searchMovies(
         @Query("query") query: String,
