@@ -99,8 +99,11 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 
     //koin
-    api("io.insert-koin:koin-android:4.0.0-RC1")
+    //api("io.insert-koin:koin-android:4.0.0-RC1") versão mais nova não reconheceu o sharedViewModel()
+    implementation("io.insert-koin:koin-android:3.4.0")
+    implementation("io.insert-koin:koin-androidx-navigation:3.4.0")
     implementation(kotlin("script-runtime"))
+
     //firebase
     implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
     implementation("com.google.firebase:firebase-auth-ktx")
@@ -110,6 +113,7 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
     // cardview
     implementation ("androidx.cardview:cardview:1.0.0")
+
 
 
 }

@@ -12,8 +12,9 @@ import com.br.jc.list_your_product.rest.viewmodel.WaitRestViewModel
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
-import org.koin.core.module.dsl.viewModel
+
 import org.koin.dsl.module
 
 

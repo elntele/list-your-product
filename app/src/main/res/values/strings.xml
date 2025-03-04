@@ -11,6 +11,7 @@
     <string name="type_new_password">digite uma senha</string>
     <string name="type_movie_name">digite o nome do filme</string>
     <string name="button_search_movie">buscar filme</string>
+    <string name="button_list_movie">Listar filmes</string>
 
     <string name="button_register">Registrar</string>
     <string name="button_clear">Limpar</string>
