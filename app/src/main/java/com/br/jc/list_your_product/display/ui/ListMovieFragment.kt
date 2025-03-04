@@ -53,10 +53,7 @@ class ListMovieFragment : BaseFragment() {
 
         waitRestViewModel.moviesFromDisCover.observe(viewLifecycleOwner) { movies ->
             movies?.let {
-                // Utilize os dados recuperados aqui
-                println("Dados recuperados: $it")
-            } ?: run {
-                println("Nenhum dado disponível")
+                observeFromDiscover(movies as MutableList)
             }
         }
 
