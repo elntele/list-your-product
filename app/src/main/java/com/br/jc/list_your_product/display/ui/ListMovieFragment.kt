@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +14,6 @@ import com.br.jc.list_your_product.display.adapter.MovieDisplayAdapter
 import com.br.jc.list_your_product.rest.model.Movie
 import com.br.jc.list_your_product.rest.viewmodel.WaitRestViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -53,7 +50,7 @@ class ListMovieFragment : BaseFragment() {
 
         waitRestViewModel.moviesFromDisCover.observe(viewLifecycleOwner) { movies ->
             movies?.let {
-                observeFromDiscover(movies as MutableList)
+                observeMovies(movies as MutableList)
             }
         }
 
@@ -61,35 +58,7 @@ class ListMovieFragment : BaseFragment() {
 
     }
 
-    private fun observeFromDiscover(movies: MutableList<Movie>) {
-        /* val movieList = mutableListOf(
-             Movie(
-                 1,
-                 "english",
-                 "dark side",
-                 "filme mock",
-                 0.3,
-                 "www.123",
-                 "10/12/2024",
-                 "lado negro",
-                 false,
-                 0.3,
-                 300
-             ),
-             Movie(
-                 2,
-                 "english",
-                 "wonder woman",
-                 "filme mock 2",
-                 0.6,
-                 "www.12345",
-                 "10/10/2022",
-                 "mulher maravilha",
-                 false,
-                 0.7,
-                 1500
-             )
-         )*/
+    private fun observeMovies(movies: MutableList<Movie>) {
 
         movieAdapter = MovieDisplayAdapter(movies)
 
