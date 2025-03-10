@@ -1,22 +1,29 @@
 package com.br.jc.list_your_product.display.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.br.jc.list_your_product.base.BaseFragment
 import com.br.jc.list_your_product.databinding.FragmentWaitRestBinding
 import com.br.jc.list_your_product.rest.viewmodel.WaitRestViewModel
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
+import org.koin.androidx.viewmodel.ext.android.getActivityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.java.KoinJavaComponent.inject
 
 class WaitRestFragment : BaseFragment() {
     private lateinit var binding: FragmentWaitRestBinding
-    private val waitRestViewModel: WaitRestViewModel by sharedViewModel()
+   // private val waitRestViewModel: WaitRestViewModel by sharedViewModel()
+   //private val waitRestViewModel: WaitRestViewModel by activityViewModels()
+   //private val waitRestViewModel by viewModel<WaitRestViewModel>()
+    private val waitRestViewModel by activityViewModel<WaitRestViewModel>()
+
+
     private val args: WaitRestFragmentArgs by navArgs()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,22 +1,27 @@
 package com.br.jc.list_your_product
 
 import android.os.Bundle
-import androidx.lifecycle.findViewTreeLifecycleOwner
+import androidx.activity.viewModels
+
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.br.jc.list_your_product.base.BaseActivity
 import com.br.jc.list_your_product.databinding.ActivityListyourproductmainBinding
 import com.br.jc.list_your_product.login.viewmodel.LoginViewModel
+import com.br.jc.list_your_product.rest.viewmodel.WaitRestViewModel
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class ListYourProductMainActivity : BaseActivity() {
     private lateinit var binding: ActivityListyourproductmainBinding
     private lateinit var navController: NavController
     private lateinit var auth: FirebaseAuth
     private val loginViewModel: LoginViewModel by viewModel()
+
+    private val waitRestViewModel by viewModel<WaitRestViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityListyourproductmainBinding.inflate(layoutInflater)

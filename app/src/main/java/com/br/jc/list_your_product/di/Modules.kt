@@ -14,6 +14,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
+import org.koin.core.module.dsl.viewModelOf
 
 import org.koin.dsl.module
 
@@ -33,6 +34,7 @@ object Modules {
         viewModel { LoginViewModel(get()) }
         viewModel { RegisterViewModel(get()) }
         viewModel {WaitRestViewModel(get(), get(), get())}
+       // viewModelOf(::WaitRestViewModel)
     }
 
     /**

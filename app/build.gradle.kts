@@ -99,9 +99,10 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 
     //koin
-    //api("io.insert-koin:koin-android:4.0.0-RC1") versão mais nova não reconheceu o sharedViewModel()
-    implementation("io.insert-koin:koin-android:3.4.0")
-    implementation("io.insert-koin:koin-androidx-navigation:3.4.0")
+    api("io.insert-koin:koin-android:4.0.0")
+    api ("io.insert-koin:koin-androidx-navigation:4.0.0")
+    /*implementation("io.insert-koin:koin-android:3.4.0")
+    implementation("io.insert-koin:koin-androidx-navigation:3.4.0")*/
     implementation(kotlin("script-runtime"))
 
     //firebase

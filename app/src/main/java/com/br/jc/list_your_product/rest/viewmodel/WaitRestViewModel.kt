@@ -16,7 +16,7 @@ import kotlinx.coroutines.launch
 class WaitRestViewModel(
     private val restGetIdsUseCase: RestGetIdsUseCase,
     private val restGetDiscoverMoviesListUseCase: RestGetDiscoverMoviesListUseCase,
-    private val restSearchUseCase: RestSearchUseCase,
+    private val restSearchUseCase: RestSearchUseCase
 ) : ViewModel() {
     private val _idsReferences = MutableLiveData<List<ReferenceId>>()
     var idsReferences = _idsReferences

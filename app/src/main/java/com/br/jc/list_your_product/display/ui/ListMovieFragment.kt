@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,7 +14,8 @@ import com.br.jc.list_your_product.databinding.FragmentListMovieBinding
 import com.br.jc.list_your_product.display.adapter.MovieDisplayAdapter
 import com.br.jc.list_your_product.rest.model.Movie
 import com.br.jc.list_your_product.rest.viewmodel.WaitRestViewModel
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -23,7 +25,9 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 class ListMovieFragment : BaseFragment() {
 
     private lateinit var biding: FragmentListMovieBinding
-    private val waitRestViewModel: WaitRestViewModel by sharedViewModel()
+    //private val waitRestViewModel: WaitRestViewModel by activityViewModels()
+    //private val waitRestViewModel by viewModel<WaitRestViewModel>()
+    private val waitRestViewModel by activityViewModel<WaitRestViewModel>()
     private lateinit var movieAdapter: MovieDisplayAdapter
     private lateinit var recyclerPrincipal: RecyclerView;
 
